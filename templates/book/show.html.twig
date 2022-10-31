@@ -29,8 +29,11 @@
             </tr>
             <tr>
                 <th>Author</th>
-                <td>{{  }}</td>
+                <td>{% for author in book.authors %}
+				<span class="badge bg-primary">{{ author.lastname }}</span>
+			{% endfor %}</td>
             </tr>
+		</div>
         </tbody>
     </table>
 

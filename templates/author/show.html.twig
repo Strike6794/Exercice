@@ -19,6 +19,12 @@
                 <th>Lastname</th>
                 <td>{{ author.lastname }}</td>
             </tr>
+            <tr>
+                <th>Book</th>
+                <td>{% for books in author.book %}
+				<span class="badge bg-primary">{{ books.title }}</span>
+			{% endfor %}</td>
+            </tr>
         </tbody>
     </table>
 

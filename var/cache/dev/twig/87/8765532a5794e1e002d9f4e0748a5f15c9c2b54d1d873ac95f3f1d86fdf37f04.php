@@ -110,21 +110,40 @@ class __TwigTemplate_c0ef8cbbcd8e2ee3ab2a00e4e40704a1b92cf226ddab20af278253401c3
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["author"]) || array_key_exists("author", $context) ? $context["author"] : (function () { throw new RuntimeError('Variable "author" does not exist.', 20, $this->source); })()), "lastname", [], "any", false, false, false, 20), "html", null, true);
         echo "</td>
             </tr>
+            <tr>
+                <th>Book</th>
+                <td>";
+        // line 24
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["author"]) || array_key_exists("author", $context) ? $context["author"] : (function () { throw new RuntimeError('Variable "author" does not exist.', 24, $this->source); })()), "book", [], "any", false, false, false, 24));
+        foreach ($context['_seq'] as $context["_key"] => $context["books"]) {
+            // line 25
+            echo "\t\t\t\t<span class=\"badge bg-primary\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["books"], "title", [], "any", false, false, false, 25), "html", null, true);
+            echo "</span>
+\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['books'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 26
+        echo "</td>
+            </tr>
         </tbody>
     </table>
 
     <a href=\"";
-        // line 25
+        // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_author_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_author_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["author"]) || array_key_exists("author", $context) ? $context["author"] : (function () { throw new RuntimeError('Variable "author" does not exist.', 27, $this->source); })()), "id", [], "any", false, false, false, 27)]), "html", null, true);
+        // line 33
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_author_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["author"]) || array_key_exists("author", $context) ? $context["author"] : (function () { throw new RuntimeError('Variable "author" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 29
+        // line 35
         echo twig_include($this->env, $context, "author/_delete_form.html.twig");
         echo "
 ";
@@ -148,7 +167,7 @@ class __TwigTemplate_c0ef8cbbcd8e2ee3ab2a00e4e40704a1b92cf226ddab20af278253401c3
 
     public function getDebugInfo()
     {
-        return array (  128 => 29,  123 => 27,  118 => 25,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  147 => 35,  142 => 33,  137 => 31,  130 => 26,  121 => 25,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -173,6 +192,12 @@ class __TwigTemplate_c0ef8cbbcd8e2ee3ab2a00e4e40704a1b92cf226ddab20af278253401c3
             <tr>
                 <th>Lastname</th>
                 <td>{{ author.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Book</th>
+                <td>{% for books in author.book %}
+\t\t\t\t<span class=\"badge bg-primary\">{{ books.title }}</span>
+\t\t\t{% endfor %}</td>
             </tr>
         </tbody>
     </table>

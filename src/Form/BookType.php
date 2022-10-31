@@ -22,6 +22,8 @@ class BookType extends AbstractType
             ->add('authors', EntityType::class, [
                 'class' => Author::class,
                 'multiple'=> true,
+                'required'=> false,
+                'expanded'=>true,
             ] )
         ;
     }
