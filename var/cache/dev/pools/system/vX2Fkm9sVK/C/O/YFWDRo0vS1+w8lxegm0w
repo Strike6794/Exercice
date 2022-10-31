@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CBook%2523removeAuthor
+
+return [PHP_INT_MAX, []];
